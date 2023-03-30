@@ -13,6 +13,11 @@
 		2B7F63CA29D52A86009DED6A /* DayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F63C929D52A86009DED6A /* DayTests.swift */; };
 		2B7F63CC29D52C1A009DED6A /* DayGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F63CB29D52C1A009DED6A /* DayGrade.swift */; };
 		2B7F63CE29D534D7009DED6A /* PreviewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F63CD29D534D7009DED6A /* PreviewContent.swift */; };
+		2B7F63D029D5438B009DED6A /* WeeklyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F63CF29D5438B009DED6A /* WeeklyChartView.swift */; };
+		2B7F63D329D543CC009DED6A /* DaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F63D229D543CC009DED6A /* DaysViewModel.swift */; };
+		2B7F63D529D55124009DED6A /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F63D429D55124009DED6A /* Date+Utils.swift */; };
+		2B7F63D829D556F0009DED6A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F63D729D556F0009DED6A /* ViewModelType.swift */; };
+		2B7F63DA29D56DF7009DED6A /* DayGradeStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F63D929D56DF7009DED6A /* DayGradeStars.swift */; };
 		2B8F477B29D0C03300723BC7 /* MensSanaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F477A29D0C03300723BC7 /* MensSanaApp.swift */; };
 		2B8F477D29D0C03300723BC7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F477C29D0C03300723BC7 /* ContentView.swift */; };
 		2B8F477F29D0C03400723BC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8F477E29D0C03400723BC7 /* Assets.xcassets */; };
@@ -50,6 +55,11 @@
 		2B7F63C929D52A86009DED6A /* DayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTests.swift; sourceTree = "<group>"; };
 		2B7F63CB29D52C1A009DED6A /* DayGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGrade.swift; sourceTree = "<group>"; };
 		2B7F63CD29D534D7009DED6A /* PreviewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContent.swift; sourceTree = "<group>"; };
+		2B7F63CF29D5438B009DED6A /* WeeklyChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChartView.swift; sourceTree = "<group>"; };
+		2B7F63D229D543CC009DED6A /* DaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysViewModel.swift; sourceTree = "<group>"; };
+		2B7F63D429D55124009DED6A /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		2B7F63D729D556F0009DED6A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		2B7F63D929D56DF7009DED6A /* DayGradeStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGradeStars.swift; sourceTree = "<group>"; };
 		2B8F477729D0C03300723BC7 /* MensSana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MensSana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8F477A29D0C03300723BC7 /* MensSanaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensSanaApp.swift; sourceTree = "<group>"; };
 		2B8F477C29D0C03300723BC7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +107,7 @@
 			children = (
 				2B8F47AE29D0E41B00723BC7 /* Color+Hex.swift */,
 				2B7F63C729D5290B009DED6A /* Array+Utils.swift */,
+				2B7F63D429D55124009DED6A /* Date+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -109,9 +120,27 @@
 			path = Publisher;
 			sourceTree = "<group>";
 		};
+		2B7F63D129D543B4009DED6A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B7F63D629D556D4009DED6A /* Protocol */,
+				2B7F63D229D543CC009DED6A /* DaysViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B7F63D629D556D4009DED6A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2B7F63D729D556F0009DED6A /* ViewModelType.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		2B8F476E29D0C03300723BC7 = {
 			isa = PBXGroup;
 			children = (
+				2B7F63D129D543B4009DED6A /* ViewModel */,
 				2B8F47A729D0C14100723BC7 /* Model */,
 				2B8F47A529D0C03C00723BC7 /* View */,
 				2B8F477929D0C03300723BC7 /* MensSana */,
@@ -174,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				2B8F477C29D0C03300723BC7 /* ContentView.swift */,
+				2B7F63CF29D5438B009DED6A /* WeeklyChartView.swift */,
+				2B7F63D929D56DF7009DED6A /* DayGradeStars.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,12 +355,17 @@
 				2B8F47AF29D0E41B00723BC7 /* Color+Hex.swift in Sources */,
 				2B8F477D29D0C03300723BC7 /* ContentView.swift in Sources */,
 				2B7F63C429D50CEF009DED6A /* Publisher.swift in Sources */,
+				2B7F63D329D543CC009DED6A /* DaysViewModel.swift in Sources */,
 				2BE82DCF29D1187900457FB6 /* Day.swift in Sources */,
 				2B8F47A929D0C18C00723BC7 /* JournalEntry.swift in Sources */,
+				2B7F63D829D556F0009DED6A /* ViewModelType.swift in Sources */,
+				2B7F63D529D55124009DED6A /* Date+Utils.swift in Sources */,
 				2B8F477B29D0C03300723BC7 /* MensSanaApp.swift in Sources */,
 				2B7F63CE29D534D7009DED6A /* PreviewContent.swift in Sources */,
 				2B8F47AD29D0CD0A00723BC7 /* Feeling.swift in Sources */,
 				2B7F63CC29D52C1A009DED6A /* DayGrade.swift in Sources */,
+				2B7F63D029D5438B009DED6A /* WeeklyChartView.swift in Sources */,
+				2B7F63DA29D56DF7009DED6A /* DayGradeStars.swift in Sources */,
 				2B7F63C829D5290B009DED6A /* Array+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

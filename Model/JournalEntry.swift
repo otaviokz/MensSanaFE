@@ -9,7 +9,8 @@ import Foundation
 import Combine
 import SwiftUI
 
-public class JournalEntry: Codable {
+public class JournalEntry: Codable, Identifiable {
+    public var id = UUID()
     let title: String
     let notes: String?
     let feeling: Feeling
@@ -31,5 +32,12 @@ public class JournalEntry: Codable {
         self.place = place
         self.peoplePresent = peoplePresent
         self.activity = activity
+    }
+}
+
+extension Array where Element == JournalEntry {
+    var orderedPositiveFirst: Self {
+        let byScore = sorted { $0.feeling.score > $1.feeling.score }
+        return byScore.sorted {  $0.feeling.score == $1.feeling.score && $0.feeling.rawValue < $1.feeling.rawValue }
     }
 }

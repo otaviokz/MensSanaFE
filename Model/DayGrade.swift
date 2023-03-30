@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum DayGrade  {
-    case dreadfull
-    case poor
-    case indiferent
-    case fine
-    case exceptional
+enum DayGrade: String  {
+    case dreadfull = "Dreadfull"
+    case poor = "Poor"
+    case indiferent = "Indiferent"
+    case fine = "Fine"
+    case exceptional = "Exceptional"
     
     init(_ sum: Int) {
         switch sum {
@@ -30,5 +30,15 @@ enum DayGrade  {
             sum + entry.feeling.score
         }
         self.init(sum)
+    }
+    
+    var starCount: Int {
+        switch self {
+        case .exceptional: return 5
+        case .fine: return 4
+        case .indiferent: return 3
+        case .poor: return 2
+        case .dreadfull: return 1
+        }
     }
 }

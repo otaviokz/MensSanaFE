@@ -11,7 +11,7 @@ import SwiftUI
 struct MensSanaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(days: PreviewContent().days)
+            ContentView()
         }
     }
 }

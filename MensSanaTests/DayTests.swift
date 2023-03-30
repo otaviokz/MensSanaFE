@@ -33,16 +33,16 @@ final class DayTests: XCTestCase {
         let horribleDay2 = Day([.anger, .helplessness, .sadness, .awkwardness, .fear, .happiness])
         
         // Then:
-        XCTAssertEqual(greatDay.dayType, .exceptional)
-        XCTAssertEqual(greatDay2.dayType, .exceptional)
-        XCTAssertEqual(goodDay.dayType, .fine)
-        XCTAssertEqual(goodDay2.dayType, .fine)
-        XCTAssertEqual(mehDay.dayType, .indiferent)
-        XCTAssertEqual(mehDay2.dayType, .indiferent)
-        XCTAssertEqual(badDay.dayType, .poor)
-        XCTAssertEqual(badDay2.dayType, .poor)
-        XCTAssertEqual(horribleDay.dayType, .dreadfull)
-        XCTAssertEqual(horribleDay2.dayType, .dreadfull)
+        XCTAssertEqual(greatDay.grade, .exceptional)
+        XCTAssertEqual(greatDay2.grade, .exceptional)
+        XCTAssertEqual(goodDay.grade, .fine)
+        XCTAssertEqual(goodDay2.grade, .fine)
+        XCTAssertEqual(mehDay.grade, .indiferent)
+        XCTAssertEqual(mehDay2.grade, .indiferent)
+        XCTAssertEqual(badDay.grade, .poor)
+        XCTAssertEqual(badDay2.grade, .poor)
+        XCTAssertEqual(horribleDay.grade, .dreadfull)
+        XCTAssertEqual(horribleDay2.grade, .dreadfull)
     }
 
     func testPerformanceExample() throws {

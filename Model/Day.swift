@@ -13,10 +13,12 @@ class Day: ObservableObject, Identifiable {
     let id = UUID()
     @Published private(set) var entries: [JournalEntry] = []
     @Published private(set) var grade: DayGrade = .indiferent
+    @Published private(set) var goodEntries: [JournalEntry] = []
+    @Published private(set) var badEntries: [JournalEntry] = []
     
     lazy var dateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "dd / MM / yyyy"
         return formatter
     }()
     var dateString: String { dateFormatter.string(from: date)}
@@ -28,12 +30,27 @@ class Day: ObservableObject, Identifiable {
         self.entries = entries
         self.date = date
         dayTypePublisher.assign(to: &$grade)
+        goodEntriesPublisher.assign(to: &$goodEntries)
+        badEntriesPublisher.assign(to: &$badEntries)
     }
     
     private lazy var dayTypePublisher: AnyPublisher<DayGrade, Never> = {
         $entries.map { array -> DayGrade in
             return DayGrade(array.reduce(0) { $0 + $1.feeling.score })
         }.eraseToAnyPublisher()
+    }()
+    
+    private lazy var goodEntriesPublisher: AnyPublisher<[JournalEntry], Never> = {
+        $entries.map { array -> [JournalEntry] in
+            array.orderedPositiveFirst.filter { $0.feeling.score > 0 }
+        }.eraseToAnyPublisher()
+    }()
+    
+    private lazy var badEntriesPublisher: AnyPublisher<[JournalEntry], Never> = {
+        $entries.map { array -> [JournalEntry] in
+            array.orderedPositiveFirst.filter { $0.feeling.score < 0 }
+        }.eraseToAnyPublisher()
+//        filter(by:{ $0.feeling.score < 0 }).eraseToAnyPublisher()
     }()
 }
 

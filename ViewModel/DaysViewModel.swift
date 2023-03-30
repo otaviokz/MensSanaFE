@@ -47,29 +47,18 @@ extension DaysViewModel {
         let count = days.count
         return Array(days[count - size..<count])
     }
-    
-//    var lastSevenDays: [Day] {
-//        guard days.count > 7 else { return days }
-//        let size = days.count
-//        return Array(days[size - 7..<size]).orderedByDate
-//    }
-//    
-//    var lastThirtyDays: [Day] {
-//        guard days.count > 30 else { return days }
-//        let size = days.count
-//        return Array(days[size - 30..<size]).orderedByDate
-//    }
 }
 
 extension DaysViewModel: ViewModelType {
     func onAppear() {
         //fetchDays
-        days = PreviewContent.days
-        visibleInterval = .lastSeven
+        days = PreviewContent.fourteenDays
+        visibleInterval = .lastFourteen
     }
 }
 
 enum VisibleInterval: Int {
     case lastSeven = 7
+    case lastFourteen = 14
     case lastThirty = 30
 }

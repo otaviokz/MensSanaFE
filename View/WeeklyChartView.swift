@@ -16,46 +16,30 @@ struct WeeklyChartView: View {
         List {
             ForEach(viewModel.visibleDays) { day in
                 VStack(alignment: .leading, spacing: 0) {
-                    HStack(alignment: .center, spacing: 0) {
-                        Spacer()
-                        Text("\(day.dateString)")
-                            .font(.headline)
-                            .padding(.vertical, 8)
-                        Spacer()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .background(backgrounColor(day: day).opacity(0.5))
-                    .padding(.vertical, 0.5)
+                    Text("\(day.dateString)")
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 24)
+                        .background(backgrounColor(day: day).opacity(0.5))
+                        .padding(.vertical, 0.5)
                     
                     HStack(alignment: .center, spacing: 0) {
                         Spacer()
                         Text("\(day.grade.rawValue)")
                             .font(.headline)
-                            .padding(.bottom, 8)
+                            .padding(.trailing, 4)
+                        
                         DayGradeStars(grade: day.grade)
                         
                         Spacer()
                     }
                     .frame(maxWidth: .infinity)
+                    .frame(height: 24)
                     .padding(.vertical, 8)
                     .background(backgrounColor(day: day).opacity(0.5))
                     Spacer()
-                        .frame(height: 2)
-                        .frame(maxWidth: .infinity)
-                        
-                    VStack(alignment: .leading) {
-                        ForEach(day.entries.orderedPositiveFirst) { entry in
-                            HStack {
-                                Text("\(entry.feeling.rawValue)")
-                                    .foregroundColor(entry.feeling.colour)
-                                Spacer()
-                            }
-                            
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .background(Color.black.opacity(0.075))
                     
+                    EntriesHStackView(day: day)
                 }
                 .frame(maxHeight: .infinity)
                 .padding(.bottom, 12)
@@ -75,6 +59,10 @@ struct WeeklyChartView: View {
         case 4: return Feeling.happiness.colour
         default: return Feeling.excitement.colour
         }
+    }
+    
+    func firstNegativeIndex(entries: [JournalEntry]) -> UUID? {
+        entries.first { $0.feeling.score < 0 }?.id
     }
 }
 

@@ -27,7 +27,7 @@ struct DayGradeStars: View {
                     EmptyView()
                 }
             }
-            .frame(width: 18 * CGFloat(grade.starCount), height: 18)
+            .frame(width: 20 * CGFloat(grade.starCount), height: 20)
             .scaledToFill()
             .foregroundColor(Color("gold"))
         }
